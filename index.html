@@ -25,8 +25,11 @@
 							<h2>Semblanza</h2>
 						</header>
 						<p>Susana Corcuera Martínez del Río (CDMX 1964) estudió Etnohistoria en la ENAH. Ha impartido talleres de Creación Literaria y ha trabajado como traductora de inglés y francés. Ha escrito para varios diarios y revistas mexicanas, ha sido colaboradora del programa de RTVE “Sexto Continente” y es cofundadora de Cuencas Vivas, una asociación civil medioambientalista.</p>
+						<div id="moreText" style="display:none;">
+							<p>Aquí puedes añadir el texto extendido de la semblanza. Todo lo que quieras que aparezca al hacer clic en “Conoce más”.</p>
+						</div>
 						<ul class="actions">
-							<li><a href="#" class="button">Conoce más</a></li>
+							<li><a href="#" id="toggleBio" class="button" onclick="mostrarMas(); return false;">Conoce más</a></li>
 						</ul>
 					</section>
 
@@ -132,6 +135,24 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script>
+			
+			/* Conoce más */
+			function mostrarMas() {
+			  const more = document.getElementById("moreText");
+			  const btn = document.getElementById("toggleBio");
+
+			  const isHidden = more.style.display === "none" || more.style.display === "";
+
+			  if (isHidden) {
+				more.style.display = "block";
+				btn.textContent = "Mostrar menos";
+			  } else {
+				more.style.display = "none";
+				btn.textContent = "Conoce más";
+			  }
+			}
+			
+			/* Contraportadas */
 			document.addEventListener("DOMContentLoaded", function () {
 
 			  const cards = document.querySelectorAll("[id^='card-']");
@@ -187,7 +208,8 @@
 				card.style.justifyContent = "center";
 				card.style.width = rect.width + "px";
 				card.style.height = rect.height + "px";
-				card.style.background = "#f2f2f2";
+				card.style.background = "#FFFFFF";
+				card.style.border = "1px solid #000";
 				card.style.padding = "15px";
 				card.style.color = "#000";
 				card.style.textDecoration = "none";
@@ -252,6 +274,7 @@
 			  });
 
 			});
+			
 			</script>
 
 	</body>
